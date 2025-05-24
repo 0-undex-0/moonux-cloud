@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Moonux - Проверка</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+:root {
+  --card-bg: #000000a9;
+  --card-bg-lighter: #241C35;
+  --accent: #8c00ff;
+  --accent2: #C77DFF;
+  --text-main: #E2E8F0;
+  --text-secondary: #e8e8e8;
+  --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+  --glow: 0 0 15px rgba(169, 64, 255, 0.553);
+  --anim-duration: 1.4s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  max-width: 420px;
+  width: 100%;
+  margin: 1.2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(157, 78, 221, 0.2);
+}
+
+.waf-logo {
+  margin-bottom: 1.5rem;
+  margin-top: 0.3rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  animation: logoPop var(--anim-duration) cubic-bezier(.68, -0.55, .27, 1.55);
+}
+
+@keyframes logoPop {
+  0% { transform: scale(.8) rotate(-8deg); opacity: 0; }
+  50% { transform: scale(1.1) rotate(4deg); opacity: 1;}
+  100% { transform: scale(1) rotate(0); opacity: 1;}
+}
+
+.pulse {
+  position: absolute;
+  left: 50%; 
+  top: 50%;
+  width: 100px; 
+  height: 100px;
+  background: rgba(161, 77, 230, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulseAnim 2.2s infinite cubic-bezier(.4,0,.2,1);
+  z-index: 0;
+}
+
+@keyframes pulseAnim {
+  0% { opacity: .25; transform: translate(-50%, -50%) scale(.75);}
+  50% { opacity: .09; }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4);}
+}
+
+.bolt-anim {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  z-index: 1;
+  display: inline-block;
+}
+
+.bolt-anim svg .bolt-main {
+  transform-origin: 50% 55%;
+}
+
+@keyframes boltFlash {
+  0% { filter: drop-shadow(0 0 0 rgba(157, 78, 221, 0.7)); opacity: 1; transform: scale(1) rotate(-2deg);}
+  15% { filter: drop-shadow(0 0 16px rgba(199, 125, 255, 0.8)); opacity: 1; transform: scale(1.08) rotate(2deg);}
+  23% { filter: drop-shadow(0 0 28px rgba(199, 125, 255, 1)); opacity: 0.93; transform: scale(1.13) rotate(-3deg);}
+  33% { filter: drop-shadow(0 0 9px rgba(157, 78, 221, 0.7)); opacity: 1; transform: scale(1) rotate(0);}
+  100% { filter: drop-shadow(0 0 0 rgba(157, 78, 221, 0.7)); opacity: 1; transform: scale(1) rotate(-2deg);}
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent2);
+  margin: 0 0 0.7rem 0;
+  letter-spacing: -.02em;
+  animation: fadeInDown .8s .2s both;
+  text-shadow: 0 0 10px rgba(199, 125, 255, 0.3);
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.desc {
+  color: var(--text-secondary);
+  margin-bottom: 1.6rem;
+  animation: fadeInUp .8s .4s both;
+  line-height: 1.5;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.captcha-box {
+  margin: 1.6rem 0 1.1rem 0;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp .8s .6s both;
+  background: var(--card-bg-lighter);
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid rgba(157, 78, 221, 0.2);
+}
+
+.copy {
+  color: var(--text-secondary);
+  animation: fadeInUp .8s 1s both;
+  margin-top: 2rem;
+}
+
+.link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--accent2);
+}
+
+.footer-note {
+  color: var(--text-secondary);
+  font-size: .93em;
+  margin-top: 2.2rem;
+  animation: fadeInUp .8s 1s both;
+  text-align: center;
+}
+
+.footer-token-list {
+  margin-top: 0.5em;
+  font-size: .95em;
+  color: var(--text-secondary);
+}
+
+.footer-token-label {
+  font-size: .92em;
+  color: var(--text-secondary);
+}
+
+.footer-token-value {
+  color: var(--text-main);
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  padding: .12em .5em;
+  display: inline-block;
+  margin-left: 0.3em;
+  box-shadow: 0 0 0 1px rgba(157, 78, 221, 0.3);
+  letter-spacing: .01em;
+}
+
+@media (max-width: 580px) {
+  .container {
+    max-width: 95vw;
+    padding: 1.5rem 1rem 1.5rem 1rem;
+  }
+  
+  .copy {
+    right: 4px;
+    top: 8px;
+    padding: 4px 18px;
+  }
+  
+  .waf-logo { 
+    width: 62px; 
+    height: 62px;
+  }
+  
+  .bolt-anim { 
+    width: 54px; 
+    height: 54px;
+  }
+  
+  .pulse { 
+    width: 70px; 
+    height: 70px;
+  }
+
+  .sphere {
+    filter: blur(30px);
+  }
+}
+</style>
+<body>
+  <div class="container">
+    <div class="waf-logo">
+      <span class="pulse"></span>
+      <span class="bolt-anim">
+        <svg viewBox="0 0 64 64" width="70" height="70" fill="none">
+          <polygon class="bolt-main" points="32,7 21,38 32,38 27,57 47,27 35,27 41,7" fill="url(#boltGrad)" stroke="#9D4EDD" stroke-width="2.2" />
+          <defs>
+            <linearGradient id="boltGrad" x1="22" y1="7" x2="47" y2="57" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#C77DFF"/>
+              <stop offset="0.4" stop-color="#9D4EDD"/>
+              <stop offset="1" stop-color="#7B2CBF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+    </div>
+    <h1>Проверка на бота</h1>
+    <div class="captcha-box">
+      ::CAPTCHA_BOX::
+    </div>
+    <div class="footer-note">
+      <div class="footer-token-list">
+        <div><span class="footer-token-value">::RAY_ID::</span></div>
+      </div>
+    </div>
+    <div class="copy"><a href="https://discord.com/users/1251117318726221855" class="link">Powered undex.dev</a></div>
+  </div>
+</body>
+</html>
