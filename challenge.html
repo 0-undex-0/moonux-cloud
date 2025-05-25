@@ -61,65 +61,6 @@ body {
   border: 1px solid rgba(157, 78, 221, 0.2);
 }
 
-.waf-logo {
-  margin-bottom: 1.5rem;
-  margin-top: 0.3rem;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  animation: logoPop var(--anim-duration) cubic-bezier(.68, -0.55, .27, 1.55);
-}
-
-@keyframes logoPop {
-  0% { transform: scale(.8) rotate(-8deg); opacity: 0; }
-  50% { transform: scale(1.1) rotate(4deg); opacity: 1;}
-  100% { transform: scale(1) rotate(0); opacity: 1;}
-}
-
-.pulse {
-  position: absolute;
-  left: 50%; 
-  top: 50%;
-  width: 100px; 
-  height: 100px;
-  background: rgba(161, 77, 230, 0.15);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  animation: pulseAnim 2.2s infinite cubic-bezier(.4,0,.2,1);
-  z-index: 0;
-}
-
-@keyframes pulseAnim {
-  0% { opacity: .25; transform: translate(-50%, -50%) scale(.75);}
-  50% { opacity: .09; }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4);}
-}
-
-.bolt-anim {
-  position: relative;
-  width: 74px;
-  height: 74px;
-  z-index: 1;
-  display: inline-block;
-}
-
-.bolt-anim svg .bolt-main {
-  transform-origin: 50% 55%;
-}
-
-@keyframes boltFlash {
-  0% { filter: drop-shadow(0 0 0 rgba(157, 78, 221, 0.7)); opacity: 1; transform: scale(1) rotate(-2deg);}
-  15% { filter: drop-shadow(0 0 16px rgba(199, 125, 255, 0.8)); opacity: 1; transform: scale(1.08) rotate(2deg);}
-  23% { filter: drop-shadow(0 0 28px rgba(199, 125, 255, 1)); opacity: 0.93; transform: scale(1.13) rotate(-3deg);}
-  33% { filter: drop-shadow(0 0 9px rgba(157, 78, 221, 0.7)); opacity: 1; transform: scale(1) rotate(0);}
-  100% { filter: drop-shadow(0 0 0 rgba(157, 78, 221, 0.7)); opacity: 1; transform: scale(1) rotate(-2deg);}
-}
-
 h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -218,21 +159,6 @@ h1 {
     top: 8px;
     padding: 4px 18px;
   }
-  
-  .waf-logo { 
-    width: 62px; 
-    height: 62px;
-  }
-  
-  .bolt-anim { 
-    width: 54px; 
-    height: 54px;
-  }
-  
-  .pulse { 
-    width: 70px; 
-    height: 70px;
-  }
 
   .sphere {
     filter: blur(30px);
@@ -241,21 +167,6 @@ h1 {
 </style>
 <body>
   <div class="container">
-    <div class="waf-logo">
-      <span class="pulse"></span>
-      <span class="bolt-anim">
-        <svg viewBox="0 0 64 64" width="70" height="70" fill="none">
-          <polygon class="bolt-main" points="32,7 21,38 32,38 27,57 47,27 35,27 41,7" fill="url(#boltGrad)" stroke="#9D4EDD" stroke-width="2.2" />
-          <defs>
-            <linearGradient id="boltGrad" x1="22" y1="7" x2="47" y2="57" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#C77DFF"/>
-              <stop offset="0.4" stop-color="#9D4EDD"/>
-              <stop offset="1" stop-color="#7B2CBF"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </span>
-    </div>
     <h1>Проверка на бота</h1>
     <div class="captcha-box">
       ::CAPTCHA_BOX::
